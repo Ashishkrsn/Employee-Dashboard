@@ -225,10 +225,9 @@ function App() {
 
   useEffect(() => {
     try { window.localStorage.setItem('workhub-theme', darkMode ? 'dark' : 'light') } catch {}
+    const themeMeta = document.querySelector('meta[name=\"theme-color\"]')
+    if (themeMeta) themeMeta.setAttribute('content', darkMode ? '#12161d' : '#ffffff')
   }, [darkMode])
-
-  const builtPages = new Set(['Home', 'Teams'])
-  const showPlaceholder = !builtPages.has(active)
 
   return <div className={`app-shell ${darkMode ? 'dark-mode' : ''}`}>
     <Sidebar active={active} setActive={setActive} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}/>
