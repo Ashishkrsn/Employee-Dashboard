@@ -1,21 +1,28 @@
-# Employee Dashboard v1.5
+# Employee Dashboard
 
-React + Vite employee dashboard with responsive Home and Teams pages.
+React + Vite employee dashboard UI.
 
-## v1.5 changes
-- Replaced the header control between Search and Notifications with a Dark Mode / Light Mode toggle.
-- Light mode remains the approved visual baseline.
-- Added a full dark theme for Home and Teams pages with adjusted surfaces, borders, text, muted text, controls, cards, tabs, progress indicators, and mobile navigation for readability.
-- Theme preference persists with `localStorage` under `workhub-theme`.
-- Toggle icon switches between moon (light mode state) and sun (dark mode state).
+## Production build
 
-## Run
 ```bash
 npm install
-npm run dev
+npm run build
+npm run preview
 ```
 
+Production output is generated in `dist/`.
 
-## v1.7 changes
-- Updated Work Anniversaries icon to the supplied five-point star reference, extracted with a transparent background and recolored to the dashboard accent blue.
-- Made the Settings icon light/visible in dark mode; light mode is unchanged.
+## Cloudflare Pages
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Production branch: `main`
+
+Cloudflare Pages supports React/Vite with this configuration.
+
+## Netlify
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+`netlify.toml` and `public/_redirects` are included for SPA routing.
