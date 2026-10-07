@@ -1,30 +1,8 @@
 # WorkHub Employee Dashboard
 
-A responsive React + Vite employee dashboard UI with an approved light theme, optional dark mode, a Home dashboard, a Teams workspace, and work-in-progress states for sections that are not built yet.
-
-## Project structure
-
-```text
-src/
-  main.jsx
-  styles.css
-public/
-  _headers
-  _redirects
-  lotus-post.jpg
-  lsicon_setting-outline.png
-  work-anniversary-star.png
-index.html
-package.json
-vite.config.js
-netlify.toml
-.nvmrc
-.gitignore
-```
+React + Vite employee dashboard.
 
 ## Local development
-
-Requires Node.js 20–22. Node 22 is pinned for deployment consistency.
 
 ```bash
 npm install
@@ -34,26 +12,23 @@ npm run dev
 ## Production build
 
 ```bash
-npm install
 npm run build
-npm run preview
 ```
 
-The production output is written to `dist/`.
+The production output is generated in `dist/`.
 
 ## Netlify
 
+Netlify can detect this Vite project automatically when connected to the Git repository. Use:
+
 - Build command: `npm run build`
 - Publish directory: `dist`
-- Node version: `22`
+- Node: 22
 
-`netlify.toml` supplies the build settings, Node version, and SPA fallback. `public/_redirects` provides the same SPA fallback for compatible static hosting behavior.
+No `netlify.toml` is required for this project.
 
-## Cloudflare Pages
+## Cloudflare Workers Static Assets
 
-- Framework: Vite / React
-- Build command: `npm run build`
-- Build output directory: `dist`
-- Node version: `22`
+This repository includes `wrangler.jsonc` for Wrangler deployments. Build the app first, then deploy with Wrangler according to your Cloudflare project setup.
 
-The project is a standard static Vite build and does not require a server runtime.
+The SPA fallback is handled by Cloudflare's `not_found_handling: single-page-application` setting; do not add a `public/_redirects` SPA rule.
